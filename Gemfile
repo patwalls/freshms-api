@@ -17,6 +17,18 @@ gem 'rack-cors', :require => 'rack/cors'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+# For texting people
+gem 'twilio-ruby'
+
+# For cron
+gem 'whenever', :require => false
+
+# For scraping
+gem 'nokogiri'
+
+# For date parsing
+gem 'chronic'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

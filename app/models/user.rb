@@ -6,8 +6,10 @@ class User < ActiveRecord::Base
 
   after_create :update_access_token!
 
-  validates :username, presence: true
-  validates :email, presence: true
+  validates :phone, presence: true
+
+  has_many :project_subscriptions
+  has_many :projects, through: :project_subscriptions
 
   private
 

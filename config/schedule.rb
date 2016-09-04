@@ -28,3 +28,7 @@ env :PATH, ENV['PATH']
 every 5.minutes do
   runner "LeakCheckerWorker.new.call", :environment => 'development'
 end
+
+every 1.minutes do
+  runner "TextWorker.new.call", :environment => 'development'
+end

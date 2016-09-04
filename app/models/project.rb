@@ -7,7 +7,7 @@ class Project < ActiveRecord::Base
   def notify_subscribers_of_leak
     message = "#{title} has leaked."
     users.each do |user|
-      Message.create(user_id: user, body: message)
+      Message.create(user_id: user.id, body: message)
     end
   end
 end

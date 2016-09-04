@@ -3,15 +3,19 @@ require 'open-uri'
 
 class LeakChecker
   attr_reader :project, :dom
+  attr_accessor :leaked
 
   def initialize(project)
     @project = project
     @dom = dom_element_from_webpage
+    @leaked = false
   end
 
   def call
-    update_leak_status if is_a_leak?(leaked_text_on_webpage)
-    project.notify_subscribers_of_leak
+    if is_a_leak?(leaked_text_on_webpage)
+      update_leak_status
+      project.notify_subscribers_of_leak
+    end
   end
 
   private
